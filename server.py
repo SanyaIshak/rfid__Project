@@ -120,7 +120,7 @@ def get_users():
 @app.post("/toggle-registration")
 def toggle_registration():
     state["registration_open"] = not state["registration_open"]
-    # при закрытии регистрации сбрасываем "зависшую" карту, если её не успели подтвердить
+    # при закрытиирегистрации сбрасываем "зависшую" карту, если её не успели подтвердить
     if not state["registration_open"]:
         state["pending_uid"] = None
     save_state()
@@ -228,7 +228,7 @@ def rfid():
 # ==================================================================
 @app.get("/")
 def serve_index():
-    return send_from_directory(PUBLIC_DIR, "index.html")
+    returnsend_from_directory(PUBLIC_DIR, "index.html")
 
 
 @app.get("/admin")
@@ -242,6 +242,6 @@ def serve_static(filename):
 
 
 # ==================================================================
-if __name__ == "__main__":
+if name == "__main__":
     port = int(os.environ.get("PORT", 3000))
     app.run(host="0.0.0.0", port=port)
